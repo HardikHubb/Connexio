@@ -9,7 +9,7 @@ import "./styles.css";
 
 function App() {
   const [activePage, setActivePage] = useState("overview");
-  const [selectedCaseId, setSelectedCaseId] = useState("");
+  const [selectedCaseId, setSelectedCaseId] = useState("101");
   const [showCreateInvestigation, setShowCreateInvestigation] =
     useState(false);
 

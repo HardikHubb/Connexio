@@ -72,7 +72,7 @@ export default function Overview({
         <div>
           <div className="eyebrow">INVESTIGATION WORKSPACE</div>
 
-          <h1>Overview</h1>
+          <h1>Investigation Overview</h1>
 
          
         </div>
@@ -126,10 +126,10 @@ export default function Overview({
           </h2>
 
           <p>
-            {selectedCase
-              ? `Case ${selectedCase.case_id} is connected to the investigation graph.`
-              : "Create an investigation and add source records to begin."}
-          </p>
+  {selectedCase
+    ? `Case ${selectedCase.case_id} contains connected investigation records and entities.`
+    : "Create an investigation or add source records to begin."}
+</p>
         </div>
 
         <button
@@ -137,7 +137,7 @@ export default function Overview({
           onClick={onOpenNetwork}
           disabled={!selectedCaseId}
         >
-          Open Network
+          Explore Network
           <span>→</span>
         </button>
       </section>
