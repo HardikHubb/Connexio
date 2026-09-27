@@ -101,33 +101,20 @@ def list_cases() -> list[CaseSummary]:
         return []
 
     summaries = []
-
     for entry in sorted(root.iterdir()):
         manifest_file = entry / "manifest.json"
-
         if manifest_file.exists():
             manifest = json.loads(
                 manifest_file.read_text(encoding="utf-8")
             )
-
-            actual_source_count = len(manifest.get("sources", []))
-
-            # Case 101 is the bundled synthetic demo investigation.
-            # Its four seed documents are already represented in the
-            # processed demo pipeline, even if no files were uploaded
-            # through the public UI on this deployment.
-            if manifest.get("case_id") == "101" and actual_source_count == 0:
-                actual_source_count = 4
-
             summaries.append(
                 CaseSummary(
                     case_id=manifest["case_id"],
                     name=manifest["name"],
                     created_at=manifest["created_at"],
-                    source_count=actual_source_count,
+                    source_count=len(manifest.get("sources", [])),
                 )
             )
-
     return summaries
 
 
