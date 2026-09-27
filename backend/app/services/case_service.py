@@ -26,6 +26,12 @@ class CaseNotFoundError(Exception):
 class CaseAlreadyExistsError(Exception):
     pass
 
+DEMO_CASE = CaseSummary(
+    case_id="101",
+    name="Case 101",
+    created_at="2026-01-01T00:00:00+00:00",
+    source_count=0,
+)
 
 def _storage_root() -> Path:
     return Path(settings.storage_dir)
@@ -97,26 +103,34 @@ def get_case(case_id: str) -> dict:
 
 def list_cases() -> list[CaseSummary]:
     root = _storage_root()
-    if not root.exists():
-        return []
 
     summaries = []
-    for entry in sorted(root.iterdir()):
-        manifest_file = entry / "manifest.json"
-        if manifest_file.exists():
-            manifest = json.loads(
-                manifest_file.read_text(encoding="utf-8")
-            )
-            summaries.append(
-                CaseSummary(
-                    case_id=manifest["case_id"],
-                    name=manifest["name"],
-                    created_at=manifest["created_at"],
-                    source_count=len(manifest.get("sources", [])),
-                )
-            )
-    return summaries
 
+    if root.exists():
+        for entry in sorted(root.iterdir()):
+            manifest_file = entry / "manifest.json"
+
+            if manifest_file.exists():
+                manifest = json.loads(
+                    manifest_file.read_text(encoding="utf-8")
+                )
+
+                summaries.append(
+                    CaseSummary(
+                        case_id=manifest["case_id"],
+                        name=manifest["name"],
+                        created_at=manifest["created_at"],
+                        source_count=len(manifest.get("sources", [])),
+                    )
+                )
+
+    # Case 101 is the bundled synthetic demonstration investigation.
+    # Its graph exists in Neo4j even when the runtime storage manifest
+    # is not present on the deployment filesystem.
+    if not any(case.case_id == "101" for case in summaries):
+        summaries.insert(0, DEMO_CASE)
+
+    return summaries
 
 def register_source(case_id: str, source_id: str) -> None:
     """Called by ingestion_service after a file is successfully parsed."""

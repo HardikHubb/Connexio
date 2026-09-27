@@ -62,10 +62,9 @@ export default function Overview({
     }
   }
 
-  const selectedCase = cases.find(
-    (item) => item.case_id === selectedCaseId
-  );
-
+ const selectedCase = cases.find(
+  (item) => String(item.case_id) === String(selectedCaseId)
+);
   return (
     <main className="main-content">
       <header className="topbar">
