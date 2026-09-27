@@ -1,0 +1,9 @@
+call_id,caller_number,receiver_number,call_type,timestamp,duration_seconds,tower_location
+CDR-7801,9876543210,9871122334,outgoing,2026-08-12 11:30:12,412,Koregaon Park - Tower 4
+CDR-7802,9876543210,9123456780,outgoing,2026-08-12 11:48:03,87,Koregaon Park - Tower 4
+CDR-7803,9123456780,9876543210,incoming,2026-08-12 18:20:44,203,Wakad - Tower 11
+CDR-7804,9876543210,9988776655,outgoing,2026-08-13 09:05:19,64,Koregaon Park - Tower 2
+CDR-7805,9988776655,9876543210,incoming,2026-08-13 09:41:55,151,Baner - Tower 6
+CDR-7806,9123456780,9871122334,outgoing,2026-08-14 15:12:37,9,Wakad - Tower 11
+CDR-7807,9876543210,9123456780,outgoing,2026-08-14 20:03:02,320,Koregaon Park - Tower 4
+CDR-7808,9988776655,9123456780,outgoing,2026-08-17 22:10:41,275,Baner - Tower 6

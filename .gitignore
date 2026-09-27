@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Env
+.env
+.env.local
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Neo4j / Docker
+neo4j_data/
+neo4j_logs/
+
+# Runtime data — uploaded/parsed files land here, not committed
+backend/storage/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

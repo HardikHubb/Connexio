@@ -1,0 +1,3 @@
+record_id,registration_number,owner_name,owner_phone,vehicle_type,color,seen_location,seen_timestamp,source
+VEH-3301,MH12AB1234,Ravi Kumar,9876543210,Maruti Suzuki Swift,White,HDFC ATM - Koregaon Park,2026-08-13 08:55:00,Complainant statement
+VEH-3302,MH12AB1234,Ravi Kumar,9876543210,Maruti Suzuki Swift,White,Wakad Main Road,2026-08-14 19:40:00,CCTV log ref CCTV-Wakad-114

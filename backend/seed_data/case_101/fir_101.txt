@@ -1,0 +1,42 @@
+FIRST INFORMATION REPORT
+Police Station: Shivaji Nagar, Pune
+FIR No.: 101/2026
+Date of Registration: 15/08/2026
+Under Sections: 420 IPC (Cheating), 66C IT Act (Identity Theft), 66D IT Act (Cheating by Personation using Computer Resource)
+
+Complainant Details:
+Name: Anita Deshmukh
+Address: Flat 302, Sunshine Apartments, Koregaon Park, Pune
+Phone: 9871122334
+
+Narrative:
+
+I, Anita Deshmukh, wish to report a case of financial fraud. On 12/08/2026 at approximately 11:30 AM,
+I received a phone call from number 9876543210. The caller identified himself as "Ravi Kumar" and
+claimed to be calling from my bank's fraud prevention department. He stated that my account had been
+compromised and instructed me to transfer my balance to a "secure holding account" for verification.
+
+Under this pretext, I transferred Rs. 4,50,000 from my SBI account (A/C No. 30011122233, IFSC
+SBIN0001234) to the account number provided by the caller, which he stated belonged to the bank's
+verification cell. I later learned this account belongs to an individual named Ravi Kumar, account
+number 30012345678, IFSC SBIN0001234.
+
+On 13/08/2026, I visited the HDFC Bank ATM near Koregaon Park to check my remaining balance and
+noticed a white Maruti Suzuki Swift bearing registration number MH12AB1234 parked outside the ATM
+for an unusually long time, with a man matching the caller's description seated inside. I did not
+report this at the time as I did not yet suspect fraud.
+
+On checking my bank statement on 14/08/2026, I discovered the transferred amount had already been
+moved out of the Ravi Kumar account to another account before I could report the fraud. My bank's
+nodal officer informed me that the funds were transferred onward to an account held by one Suresh
+Yadav (A/C No. 50098765432, HDFC Bank, IFSC HDFC0000123) on the same day.
+
+I request the police to investigate this matter, trace the accused Ravi Kumar and his associate
+Suresh Yadav, and recover my funds. I suspect a woman named Priya Singh may also be involved, as
+my colleague mentioned seeing her in the company of a man matching Ravi Kumar's description near
+the same ATM on a separate occasion in July.
+
+I am attaching my bank statement and call log as supporting evidence.
+
+Signature: Anita Deshmukh
+Date: 15/08/2026
