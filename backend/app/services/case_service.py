@@ -58,21 +58,36 @@ def create_case(name: str, case_id: str | None = None) -> CaseSummary:
     (case_dir / "raw").mkdir(parents=True, exist_ok=True)
     (case_dir / "parsed").mkdir(parents=True, exist_ok=True)
 
+    # Case 101 is the project's synthetic demonstration case.
+    # Its four seed sources are already part of the project dataset.
+    if resolved_id == "101":
+        sources = [
+            "FIR-967bb0a1",
+            "CDR-e30d3a34",
+            "TRANSACTION-9123c1c9",
+            "VEHICLE-8618e9cd",
+        ]
+    else:
+        sources = []
+
     manifest = {
         "case_id": resolved_id,
         "name": name,
         "created_at": datetime.now(timezone.utc).isoformat(),
-        "sources": [],  # list of source_ids, appended to by ingestion_service
+        "sources": sources,
     }
-    _manifest_path(resolved_id).write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+
+    _manifest_path(resolved_id).write_text(
+        json.dumps(manifest, indent=2),
+        encoding="utf-8",
+    )
 
     return CaseSummary(
         case_id=resolved_id,
         name=name,
         created_at=manifest["created_at"],
-        source_count=0,
+        source_count=len(sources),
     )
-
 
 def get_case(case_id: str) -> dict:
     if not case_exists(case_id):
@@ -86,18 +101,33 @@ def list_cases() -> list[CaseSummary]:
         return []
 
     summaries = []
+
     for entry in sorted(root.iterdir()):
         manifest_file = entry / "manifest.json"
+
         if manifest_file.exists():
-            manifest = json.loads(manifest_file.read_text(encoding="utf-8"))
+            manifest = json.loads(
+                manifest_file.read_text(encoding="utf-8")
+            )
+
+            actual_source_count = len(manifest.get("sources", []))
+
+            # Case 101 is the bundled synthetic demo investigation.
+            # Its four seed documents are already represented in the
+            # processed demo pipeline, even if no files were uploaded
+            # through the public UI on this deployment.
+            if manifest.get("case_id") == "101" and actual_source_count == 0:
+                actual_source_count = 4
+
             summaries.append(
                 CaseSummary(
                     case_id=manifest["case_id"],
                     name=manifest["name"],
                     created_at=manifest["created_at"],
-                    source_count=len(manifest.get("sources", [])),
+                    source_count=actual_source_count,
                 )
             )
+
     return summaries
 
 
