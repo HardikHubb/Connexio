@@ -6,7 +6,13 @@ export default function Overview({
   onSelectCase,
   onOpenNetwork,
 }) {
-  const [cases, setCases] = useState([]);
+  const [cases, setCases] = useState([
+  {
+    case_id: "101",
+    name: "Case 101",
+    source_count: 0,
+  },
+]);
   const [network, setNetwork] = useState(null);
 
   const [loadingCases, setLoadingCases] = useState(true);
@@ -14,9 +20,9 @@ export default function Overview({
 
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    loadCases();
-  }, []);
+ useEffect(() => {
+  setLoadingCases(false);
+}, []);
 
   useEffect(() => {
     if (!selectedCaseId) {
